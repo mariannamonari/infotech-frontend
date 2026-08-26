@@ -1,0 +1,35 @@
+.lista-produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.produto {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.produto h3 {
+    margin-top: 0;
+}
+
+.produto p {
+    margin: 6px 0;
+}
+
+.botao-detalhes {
+    background-color: #222;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+.botao-detalhes:hover {
+    background-color: #444;
+}
