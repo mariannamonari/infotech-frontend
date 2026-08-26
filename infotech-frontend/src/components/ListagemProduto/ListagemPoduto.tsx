@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ProdutoDTO } from "../../dto/ProdutoDTO";
+import type { ProdutoDTO } from "../../dto/ProdutoDTO";
 import { formatarPreco } from "../../utils/Utilitario";
 import "./ListagemProdutos.css";
 

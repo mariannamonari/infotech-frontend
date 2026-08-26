@@ -1,4 +1,4 @@
-import { ProdutoDTO } from "../dto/ProdutoDTO";
+import type { ProdutoDTO } from "../dto/ProdutoDTO";
 
 const URL_API = "http://localhost:3333";
 
@@ -25,7 +25,6 @@ export async function buscarProduto(id: number): Promise<ProdutoDTO> {
 export async function cadastrarProduto(
     produto: ProdutoDTO
 ): Promise<ProdutoDTO> {
-
     const resposta = await fetch(`${URL_API}/produtos`, {
         method: "POST",
         headers: {

@@ -1,5 +1,6 @@
-import { FormEvent, useState } from "react";
-import { ProdutoDTO } from "../../dto/ProdutoDTO";
+import { useState } from "react";
+import type { FormEvent } from "react";
+import type { ProdutoDTO } from "../../dto/ProdutoDTO";
 import { cadastrarProduto } from "../../fetch/ProdutoRequests";
 import "./FormProduto.css";
 

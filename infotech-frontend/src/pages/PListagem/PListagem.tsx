@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import ListagemProdutos from "../../components/ListagemProdutos/ListagemProdutos";
-import { ProdutoDTO } from "../../dto/ProdutoDTO";
+import ListagemProdutos from "../../components/ListagemProduto/ListagemPoduto";
+import type { ProdutoDTO } from "../../dto/ProdutoDTO";
 import {
     listarProdutos,
     listarProdutosReposicao
