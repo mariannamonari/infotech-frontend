@@ -1,63 +1,48 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import ListagemProdutos from "../../components/ListagemProduto/ListagemPoduto";
-import type { ProdutoDTO } from "../../dto/ProdutoDTO";
-import {
-    listarProdutos,
-    listarProdutosReposicao
-} from "../../fetch/ProdutoRequests";
+import PListagemProduto from "./PListagemProduto";
+import PListagemCategoria from "./PListagemCategoria";
+import PListagemMovimentacao from "./PListagemMovimentacao";
+
+type TipoListagem = "produto" | "categoria" | "movimentacao";
 
 function PListagem() {
-    const [produtos, setProdutos] = useState<ProdutoDTO[]>([]);
-    const [produtosReposicao, setProdutosReposicao] = useState<ProdutoDTO[]>([]);
-    const [erro, setErro] = useState("");
-
-    async function carregarProdutos() {
-        try {
-            const dados = await listarProdutos();
-            setProdutos(dados);
-        } catch {
-            setErro("Não foi possível carregar os produtos.");
-        }
-    }
-
-    async function carregarReposicao() {
-        try {
-            const dados = await listarProdutosReposicao();
-            setProdutosReposicao(dados);
-        } catch {
-            console.log("Não foi possível carregar produtos para reposição.");
-        }
-    }
-
-    useEffect(() => {
-        carregarProdutos();
-        carregarReposicao();
-    }, []);
+    const [tipoListagem, setTipoListagem] = useState<TipoListagem>("produto");
 
     return (
         <main className="pagina">
-            <h1>Produtos</h1>
-
             <div className="acoes-home">
-                <Link to="/cadastro">Cadastrar Novo Produto</Link>
-                <Link to="/categorias">Gerenciar Categorias</Link>
-                <Link to="/movimentacoes">Registrar Movimentação</Link>
+                <Link to="/cadastro">Novo Cadastro</Link>
             </div>
 
-            {erro && <p>{erro}</p>}
+            <div className="container-listagem">
+                <div className="abas-listagem">
+                    <button
+                        className={`aba ${tipoListagem === "produto" ? "ativa" : ""}`}
+                        onClick={() => setTipoListagem("produto")}
+                    >
+                        Produtos
+                    </button>
+                    <button
+                        className={`aba ${tipoListagem === "categoria" ? "ativa" : ""}`}
+                        onClick={() => setTipoListagem("categoria")}
+                    >
+                        Categorias
+                    </button>
+                    <button
+                        className={`aba ${tipoListagem === "movimentacao" ? "ativa" : ""}`}
+                        onClick={() => setTipoListagem("movimentacao")}
+                    >
+                        Movimentações
+                    </button>
+                </div>
 
-            <ListagemProdutos produtos={produtos} />
-
-            <hr />
-
-            <h2>Produtos para reposição</h2>
-
-            {produtosReposicao.length === 0 ? (
-                <p>Nenhum produto precisa de reposição.</p>
-            ) : (
-                <ListagemProdutos produtos={produtosReposicao} />
-            )}
+                <div className="conteudo-listagem">
+                    {tipoListagem === "produto" && <PListagemProduto />}
+                    {tipoListagem === "categoria" && <PListagemCategoria />}
+                    {tipoListagem === "movimentacao" && <PListagemMovimentacao />}
+                </div>
+            </div>
         </main>
     );
 }
