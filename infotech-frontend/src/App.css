@@ -1,39 +1,71 @@
 .pagina {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 40px 20px;
 }
 
 .pagina h1 {
     margin-top: 0;
+    margin-bottom: 35px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--rosa-principal) 0%, var(--rosa-escuro) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
 }
 
 .acoes-home {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 .acoes-home a {
-    background-color: #222;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 6px;
+    background: linear-gradient(135deg, var(--rosa-principal) 0%, var(--rosa-escuro) 100%);
+    color: var(--branco);
+    padding: 14px 28px;
+    border-radius: 8px;
     text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--sombra);
+    border: none;
+    cursor: pointer;
+    display: inline-block;
 }
 
 .acoes-home a:hover {
-    background-color: #444;
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-hover);
+}
+
+.acoes-home a:active {
+    transform: translateY(0);
 }
 
 .detalhes-produto {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 25px;
+    background-color: var(--branco);
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
     margin: 20px 0;
+    box-shadow: var(--sombra);
+    transition: all 0.3s ease;
+}
+
+.detalhes-produto:hover {
+    box-shadow: var(--sombra-hover);
+    border-color: var(--rosa-claro);
 }
 
 .detalhes-produto p {
     margin: 12px 0;
+}
+
+.detalhes-produto strong {
+    color: var(--rosa-principal);
+    font-weight: 600;
 }

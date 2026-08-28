@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ListagemProdutos from "../../components/ListagemProduto/ListagemPoduto";
 import type { ProdutoDTO } from "../../dto/ProdutoDTO";
 import {
@@ -37,6 +38,10 @@ function PListagem() {
     return (
         <main className="pagina">
             <h1>Produtos</h1>
+
+            <div className="acoes-home">
+                <Link to="/cadastro">+ Cadastrar Novo Produto</Link>
+            </div>
 
             {erro && <p>{erro}</p>}
 
