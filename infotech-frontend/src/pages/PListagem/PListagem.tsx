@@ -40,7 +40,9 @@ function PListagem() {
             <h1>Produtos</h1>
 
             <div className="acoes-home">
-                <Link to="/cadastro">+ Cadastrar Novo Produto</Link>
+                <Link to="/cadastro">Cadastrar Novo Produto</Link>
+                <Link to="/categorias">Gerenciar Categorias</Link>
+                <Link to="/movimentacoes">Registrar Movimentação</Link>
             </div>
 
             {erro && <p>{erro}</p>}
