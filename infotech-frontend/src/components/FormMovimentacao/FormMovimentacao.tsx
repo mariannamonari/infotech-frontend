@@ -8,7 +8,7 @@ import {
     obterMotivosMovimentacao
 } from "../../fetch/MovimentacaoRequests";
 import { listarProdutos } from "../../fetch/ProdutoRequests";
-import "./FormMovimentacao.css";
+import "../../styles/form-movimentacao.css";
 
 function FormMovimentacao() {
     const [idProduto, setIdProduto] = useState("");

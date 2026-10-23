@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import type { ProdutoDTO } from "../../dto/ProdutoDTO";
 import { formatarPreco } from "../../utils/Utilitario";
-import "../../components/ListagemProduto/ListagemProduto.css";
+import "../../styles/listagem-produto.css";
 
 
 interface Props {

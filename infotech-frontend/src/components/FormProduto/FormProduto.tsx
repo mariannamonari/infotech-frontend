@@ -2,7 +2,7 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import type { ProdutoDTO } from "../../dto/ProdutoDTO";
 import { cadastrarProduto } from "../../fetch/ProdutoRequests";
-import "./FormProduto.css";
+import "../../styles/form-produto.css";
 
 function FormProduto() {
     const [idCategoria, setIdCategoria] = useState("");

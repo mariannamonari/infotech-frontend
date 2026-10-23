@@ -7,7 +7,7 @@ import {
     atualizarCategoria,
     deletarCategoria
 } from "../../fetch/CategoriaRequests";
-import "./FormCategoria.css";
+import "../../styles/form-categoria.css";
 
 function FormCategoria() {
     const [nome, setNome] = useState("");

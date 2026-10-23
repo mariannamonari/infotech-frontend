@@ -43,6 +43,30 @@
     box-shadow: var(--sombra-hover);
 }
 
+.detalhes-produto {
+    background-color: var(--branco);
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: var(--sombra);
+    transition: all 0.3s ease;
+}
+
+.detalhes-produto:hover {
+    box-shadow: var(--sombra-hover);
+    border-color: var(--rosa-claro);
+}
+
+.detalhes-produto p {
+    margin: 12px 0;
+}
+
+.detalhes-produto strong {
+    color: var(--rosa-principal);
+    font-weight: 600;
+}
+
 /* ===== CONTAINERS COM ABAS ===== */
 
 .container-listagem,

@@ -1,9 +1,10 @@
 import type { CategoriaDTO } from "../dto/CategoriaDTO";
+import { fetchAutenticado } from "./Api";
 
 const URL_API = "http://localhost:3333";
 
 export async function listarCategorias(): Promise<CategoriaDTO[]> {
-    const resposta = await fetch(`${URL_API}/categorias`);
+    const resposta = await fetchAutenticado(`${URL_API}/categorias`);
 
     if (!resposta.ok) {
         throw new Error("Erro ao listar categorias");
@@ -13,7 +14,7 @@ export async function listarCategorias(): Promise<CategoriaDTO[]> {
 }
 
 export async function buscarCategoria(id: number): Promise<CategoriaDTO> {
-    const resposta = await fetch(`${URL_API}/categorias/${id}`);
+    const resposta = await fetchAutenticado(`${URL_API}/categorias/${id}`);
 
     if (!resposta.ok) {
         throw new Error("Categoria não encontrada");
@@ -25,7 +26,7 @@ export async function buscarCategoria(id: number): Promise<CategoriaDTO> {
 export async function cadastrarCategoria(
     categoria: CategoriaDTO
 ): Promise<CategoriaDTO> {
-    const resposta = await fetch(`${URL_API}/categorias`, {
+    const resposta = await fetchAutenticado(`${URL_API}/categorias`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -46,7 +47,7 @@ export async function atualizarCategoria(
     id: number,
     categoria: CategoriaDTO
 ): Promise<CategoriaDTO> {
-    const resposta = await fetch(`${URL_API}/categorias/${id}`, {
+    const resposta = await fetchAutenticado(`${URL_API}/categorias/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -64,7 +65,7 @@ export async function atualizarCategoria(
 }
 
 export async function deletarCategoria(id: number): Promise<void> {
-    const resposta = await fetch(`${URL_API}/categorias/${id}`, {
+    const resposta = await fetchAutenticado(`${URL_API}/categorias/${id}`, {
         method: "DELETE"
     });
 
