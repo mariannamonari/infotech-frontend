@@ -1,10 +1,8 @@
 import type { MovimentacaoDTO } from "../dto/MovimentacaoDTO";
-import { fetchAutenticado } from "./Api";
-
-const URL_API = "http://localhost:3333";
+import { API_URL } from "../config/api";
 
 export async function listarMovimentacoes(): Promise<MovimentacaoDTO[]> {
-    const resposta = await fetchAutenticado(`${URL_API}/movimentacoes`);
+    const resposta = await fetch(`${API_URL}/movimentacoes`);
 
     if (!resposta.ok) {
         throw new Error("Erro ao listar movimentações");
@@ -14,7 +12,7 @@ export async function listarMovimentacoes(): Promise<MovimentacaoDTO[]> {
 }
 
 export async function buscarMovimentacao(id: number): Promise<MovimentacaoDTO> {
-    const resposta = await fetchAutenticado(`${URL_API}/movimentacoes/${id}`);
+    const resposta = await fetch(`${API_URL}/movimentacoes/${id}`);
 
     if (!resposta.ok) {
         throw new Error("Movimentação não encontrada");
@@ -26,8 +24,8 @@ export async function buscarMovimentacao(id: number): Promise<MovimentacaoDTO> {
 export async function listarMovimentacoesPorProduto(
     idProduto: number
 ): Promise<MovimentacaoDTO[]> {
-    const resposta = await fetchAutenticado(
-        `${URL_API}/movimentacoes/produto/${idProduto}`
+    const resposta = await fetch(
+        `${API_URL}/movimentacoes/produto/${idProduto}`
     );
 
     if (!resposta.ok) {
@@ -40,7 +38,7 @@ export async function listarMovimentacoesPorProduto(
 export async function registrarMovimentacao(
     movimentacao: MovimentacaoDTO
 ): Promise<MovimentacaoDTO> {
-    const resposta = await fetchAutenticado(`${URL_API}/movimentacoes`, {
+    const resposta = await fetch(`${API_URL}/movimentacoes`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -59,7 +57,7 @@ export async function registrarMovimentacao(
 
 export async function obterTiposMovimentacao(): Promise<string[]> {
     try {
-        const resposta = await fetchAutenticado(`${URL_API}/movimentacoes/tipos`);
+        const resposta = await fetch(`${API_URL}/movimentacoes/tipos`);
 
         if (resposta.ok) {
             return await resposta.json();
@@ -74,7 +72,7 @@ export async function obterTiposMovimentacao(): Promise<string[]> {
 
 export async function obterMotivosMovimentacao(): Promise<string[]> {
     try {
-        const resposta = await fetchAutenticado(`${URL_API}/movimentacoes/motivos`);
+        const resposta = await fetch(`${API_URL}/movimentacoes/motivos`);
 
         if (resposta.ok) {
             return await resposta.json();
