@@ -2,7 +2,7 @@ import type { ProdutoDTO } from "../dto/ProdutoDTO";
 import { API_URL } from "../config/api";
 
 export async function listarProdutos(): Promise<ProdutoDTO[]> {
-    const resposta = await fetch(`https://infotech-backend-qwln.onrender.coms/produtos`);
+    const resposta = await fetch(`${API_URL}/produtos`);
 
     if (!resposta.ok) {
         throw new Error("Erro ao listar produtos");
